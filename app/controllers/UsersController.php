@@ -7,8 +7,7 @@ class UsersController extends BaseController {
 
 	public function __construct() {
 	    $this->beforeFilter('csrf', array('on'=>'post'));
-	    $this->beforeFilter('auth', array('only'=>array('getDashboard')));
-	    $this->beforeFilter('auth', array('only'=>array('getPayment')));
+	    $this->beforeFilter('auth', array('only'=>array('getDashboard', 'getPayment', 'populateUnit', 'postPayment')));
 	}
 
 	public function postCreate() {
