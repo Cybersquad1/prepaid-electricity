@@ -72,7 +72,7 @@ class SerialAccess extends Command {
 
 				$unitId = 1;
 				if ($watt_array[0] == "watt" && isset($watt_array[1]) && $watt_array[1]!=false){
-					Watts::addWatt($unitId,$watt_array[1]);
+					Watts::addWatt($unitId,$watt_array[1]); //funtion sa models/Watts.php
 				}
 			}
 

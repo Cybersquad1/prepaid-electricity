@@ -8,6 +8,7 @@ class UsersController extends BaseController {
 	public function __construct() {
 	    $this->beforeFilter('csrf', array('on'=>'post'));
 	    $this->beforeFilter('auth', array('only'=>array('getDashboard')));
+	    $this->beforeFilter('auth', array('only'=>array('getPayment')));
 	}
 
 	public function postCreate() {
@@ -32,7 +33,7 @@ class UsersController extends BaseController {
 	}
 
 	public function postSignin() {
-        if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
+        if (Auth::attempt(array('username'=>Input::get('username'), 'password'=>Input::get('password')))) {
 		    return Redirect::action('UsersController@getDashboard')->with('message', 'You are now logged in!');
 		} else {
 		    return Redirect::action('UsersController@getLogin')
@@ -49,6 +50,29 @@ class UsersController extends BaseController {
      Auth::logout();
 	    return Redirect::action('UsersController@getLogin')
 	    ->with('message', 'Your are now logged out!');
+	}
+
+	public function getPayment() {
+		return View::make('users.payment');
+	}
+
+	public function populateUnit() {
+
+	  // queries the clients db table, orders by client_name and lists client_name and id
+	  $unit_options = DB::table('units')->orderBy('number', 'asc')->lists('number','id');
+
+	    return View::make('users.payment', array('unit_options' => $unit_options));
+	}
+
+	public function postPayment(){
+		$credit = new Creditlog;
+	    $credit->unit_id = Input::get('unit');
+	    $credit->amount = Input::get('amount');
+	    $credit->save();
+
+	    $unit = Units::where('id', Input::get('unit'))->first();
+	    $unit -> credit += Input::get('amount');
+	    $unit->save();
 	}
 
 }

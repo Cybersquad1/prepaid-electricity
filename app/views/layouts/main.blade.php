@@ -22,7 +22,7 @@
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Brand</a>
+	      <a class="navbar-brand" href="#">Prepaid Electricity</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,6 +32,9 @@
 	        <li>{{ HTML::link('/register', 'Register') }}</li>   
 	        <li>{{ HTML::link('/login', 'Login') }}</li> 
           @else
+          <li>{{ HTML::link('/payment', 'Credit Payment') }}</li> 
+          <li>{{ HTML::link('#', 'Report Summary') }}</li> 
+          <li>{{ HTML::link('#', 'Electric Status') }}</li> 
           <li>{{ HTML::link('/logout', 'Logout') }}</li> 
           @endif
 	      </ul>
@@ -53,5 +56,6 @@
     {{ HTML::script('assets/bower_components/jquery/dist/jquery.min.js') }}
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     {{ HTML::script('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') }}
+    {{ HTML::script('assets/js/preview.js') }}
   </body>
 </html>

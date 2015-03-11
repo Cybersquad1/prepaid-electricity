@@ -21,3 +21,6 @@ Route::get('/login', 'UsersController@getLogin');
 Route::post('/login', 'UsersController@postSignin');
 Route::get('/dashboard', 'UsersController@getDashboard');
 Route::get('/logout', 'UsersController@getLogout');
+Route::get('/payment', 'UsersController@getPayment');
+Route::get('/payment', 'UsersController@populateUnit');
+Route::post('/payment', 'UsersController@postPayment');

@@ -16,7 +16,7 @@ class CreateWattsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('unit_id')->unsigned();
-			$table->decimal('watts', 5, 2);
+			$table->decimal('watts', 10, 2);
 			$table->timestamps();
 
 			$table->foreign('unit_id')
