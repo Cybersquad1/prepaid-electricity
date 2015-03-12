@@ -55,15 +55,22 @@ class SerialAccess extends Command {
 
 			$serial->deviceOpen();
 
+			$read = '';
+			$theResult = '';
+			$start = microtime(true);
+			while ( ($read == '') && (microtime(true) <= $start + 0.5) ) {
+				$read = $serial->readPort();
+				if ($read != '') {
+					$theResult .= $read;
+					$read = '';
+				}
+			}
+			
+			$theResult = trim($theResult);
+			if(!$theResult) continue;
+			echo $theResult . "\n";
 
-			do{
-				$raw = $serial->readPort();
-				$raw = trim($raw);
-			}while($raw=='');
-			
-			echo $raw . "\n";
-			
-			$line = explode("\n", $raw);
+			$line = explode("\n", $theResult);
 			
 			foreach($line as $l){
 				$l = trim($l);
@@ -73,6 +80,7 @@ class SerialAccess extends Command {
 				$unitId = 1;
 				if ($watt_array[0] == "watt" && isset($watt_array[1]) && $watt_array[1]!=false){
 					Watts::addWatt($unitId,$watt_array[1]); //funtion sa models/Watts.php
+					Units::lessCredit($unitId,$watt_array[1]);
 				}
 			}
 
