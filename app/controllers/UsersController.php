@@ -72,6 +72,8 @@ class UsersController extends BaseController {
 	    $unit = Units::where('id', Input::get('unit'))->first();
 	    $unit -> credit += Input::get('amount');
 	    $unit->save();
+
+	    return Redirect::action('UsersController@postPayment')->with('message', 'Success!');
 	}
 
 }

@@ -16,7 +16,7 @@ class CreateUnitsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('number',10)->unique();
-			$table->decimal('credit', 10, 2);
+			$table->decimal('credit', 18, 8);
 			$table->timestamps();
 		});
 	}
