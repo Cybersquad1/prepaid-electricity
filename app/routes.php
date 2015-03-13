@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'UsersController@getLogin');
 Route::get('/register', 'UsersController@getRegister');
 Route::post('/register', 'UsersController@postCreate');
 Route::get('/login', 'UsersController@getLogin');
@@ -24,3 +21,4 @@ Route::get('/logout', 'UsersController@getLogout');
 Route::get('/payment', 'UsersController@getPayment');
 Route::get('/payment', 'UsersController@populateUnit');
 Route::post('/payment', 'UsersController@postPayment');
+Route::get('/', 'UsersController@getHome');

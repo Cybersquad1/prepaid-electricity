@@ -76,5 +76,9 @@ class UsersController extends BaseController {
 	    return Redirect::action('UsersController@postPayment')->with('message', 'Success!');
 	}
 
+	public function getHome() {
+	    return View::make('users.home');
+	}
+
 }
 
