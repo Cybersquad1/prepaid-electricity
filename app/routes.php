@@ -22,3 +22,4 @@ Route::get('/payment', 'UsersController@getPayment');
 Route::get('/payment', 'UsersController@populateUnit');
 Route::post('/payment', 'UsersController@postPayment');
 Route::get('/', 'UsersController@getHome');
+Route::get('/status', 'UsersController@getStatus');

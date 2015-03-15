@@ -1,10 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-<form method="post" action="{{URL::action('UsersController@postPayment')}}">
-<input type="hidden" name="_token" value="{{ csrf_token()}}">
-<div class="container">
-  <div class="row">
+<div id="payment" class="payment">
+  <div class="text-vcenter">
+    <form method="post" action="{{URL::action('UsersController@postPayment')}}">
+    <input type="hidden" name="_token" value="{{ csrf_token()}}">
+
+    <div class="rowpay">
         <div class="col-sm-12">
             <legend>Prepaid Electricity</legend>
         </div>
@@ -41,7 +43,7 @@
                 </div>
             </div>            
         </div> <!-- / panel preview -->
-        <div class="col-sm-7">
+        <div class="col-sm-6">
             <h4>Preview:</h4>
             <div class="row">
                 <div class="col-xs-12">
@@ -70,7 +72,11 @@
                     <button type="submit" class="btn btn-primary btn-block">Submit all and finish</button>
                 </div>                
             </div>
+            @if(Session::has('message'))
+                <p class="alert">{{ Session::get('message') }}</p>
+            @endif
         </div>
+    </div>
   </div>
 </div>
 </form>

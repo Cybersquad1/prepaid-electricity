@@ -33,7 +33,7 @@ class UsersController extends BaseController {
 
 	public function postSignin() {
         if (Auth::attempt(array('username'=>Input::get('username'), 'password'=>Input::get('password')))) {
-		    return Redirect::action('UsersController@getDashboard')->with('message', 'You are now logged in!');
+		    return Redirect::action('UsersController@getHome')->with('message', 'You are now logged in!');
 		} else {
 		    return Redirect::action('UsersController@getLogin')
 		        ->with('message', 'Your username/password combination was incorrect')
@@ -73,11 +73,17 @@ class UsersController extends BaseController {
 	    $unit -> credit += Input::get('amount');
 	    $unit->save();
 
-	    return Redirect::action('UsersController@postPayment')->with('message', 'Success!');
+	    return Redirect::action('UsersController@postPayment')->with('message', 'Successfully purchased credit!');
 	}
 
 	public function getHome() {
 	    return View::make('users.home');
+	}
+
+	public function getStatus(){
+		$results = Units::where('id', 1)->get('credit');
+		return View::make('users.report')->with('results', $results);
+
 	}
 
 }
