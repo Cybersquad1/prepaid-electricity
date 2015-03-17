@@ -4,15 +4,15 @@
 <div id="payment" class="payment">
   <div class="text-vcenter">
     <div class="row">
-		<h2>Electric Status</h2>
+		<h2>Report Summary</h2>
 	    <p class="lead">
-	        Check the status of your electric credits.
+	        Credit Logs, Summary, etc.
 	    </p>
 	    
 	    <div class="alert alert-info">
-	        <h4>Electric Status Credit</h4>
-	        <p>As the tenant buys credit for electricity, it is lessened depending on the electric consumption.</p>
-	        <p>Please reload immidiately when credit runs low to prevent disconnection.</p>
+	        <h4>Credit Logs</h4>
+	        <p>Lists of the credits bought by the tenants.</p>
+	        <p>Shows the Unit ID, amount bought, and the date of transaction.</p>
 	    </div>
 
 	    <hr />
@@ -20,42 +20,33 @@
 	    <div class="method">
 	        <div class="row margin-0 list-header hidden-sm hidden-xs">
 	            <div class="col-md-4"><div class="header">Unit ID</div></div>
-	            <div class="col-md-3"><div class="header">Credit</div></div>
-	            <div class="col-md-3"><div class="header">Remarks</div></div>
+	            <div class="col-md-3"><div class="header">Amount</div></div>
+	            <div class="col-md-3"><div class="header">Date</div></div>
 	        </div>
 
 	        <div class="row margin-0">
 	            <div class="col-md-4">
 	                <div class="cell">
 	                    <div class="propertyname">
-	                        Unit No. {{$unit->id}}  <span class="mobile-isrequired">[Required]</span>
+	                          <span class="mobile-isrequired">[Required]</span>
 	                    </div>
 	                </div>
 	            </div>
 	            <div class="col-md-3">
 	                <div class="cell">
 	                    <div class="type">
-	                        <code>{{$unit->credit}}</code>
+	                        <code></code>
 	                    </div>
 	                </div>
 	            </div>
-	            @if($unit->credit <= 50 & $unit->credit > 0)
 	            <div class="col-md-3">
 	                <div class="cell">
 	                    <div class="type">
-	                        Please reload immidiately to prevent disconnection.
+	                        
 	                    </div>
 	                </div>
 	            </div>
-	            @elseif($unit->credit <= 0)
-	            <div class="col-md-3">
-	                <div class="cell">
-	                    <div class="type">
-	                        Your electricity has been disconnected. Please reload.
-	                    </div>
-	                </div>
-	            </div>
-	            @endif
+
 	        </div>
 	    </div>
     </div>

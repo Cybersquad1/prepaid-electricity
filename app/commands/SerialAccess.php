@@ -83,8 +83,14 @@ class SerialAccess extends Command {
 					Units::lessCredit($unitId,$watt_array[1]);
 				}
 			}
+			$unitId = 1;
+			if(Units::hasCredit($unitId)){
+				$serial->sendMessage("on");
+			}else{
+				$serial->sendMessage("off");
+			}
 
-				
+			
 			
 			$serial->deviceClose();
 

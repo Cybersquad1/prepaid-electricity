@@ -38,10 +38,11 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-main">
       <ul class="nav navbar-nav navbar-right">
          @if(!Auth::check())
+          <li>{{ HTML::link('/status', 'Electric Status') }}</li>
           <li>{{ HTML::link('/login', 'Login') }}</li> 
           @else
           <li>{{ HTML::link('/payment', 'Credit Payment') }}</li> 
-          <li>{{ HTML::link('#', 'Report Summary') }}</li> 
+          <li>{{ HTML::link('/report', 'Report Summary') }}</li> 
           <li>{{ HTML::link('/status', 'Electric Status') }}</li> 
           <li>{{ HTML::link('/logout', 'Logout') }}</li> 
           @endif

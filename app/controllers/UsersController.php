@@ -81,10 +81,13 @@ class UsersController extends BaseController {
 	}
 
 	public function getStatus(){
-		$results = Units::where('id', 1)->get('credit');
-		return View::make('users.report')->with('results', $results);
+		$unit = Units::where('id', 1)->first();
+		return View::make('users.report',array('unit'=>$unit));
 
 	}
 
+	public function getSummary() {
+	    return View::make('users.summary');
+	}
 }
 

@@ -12,5 +12,10 @@ class Units extends Eloquent {
 		$units->credit -= $lessen;
 		$units->save();
 	}
+
+	public static function hasCredit($unitId){
+		$units = Units::where('id', $unitId)->first();
+		return $units->credit <= 0;
+	}
 	
 }
