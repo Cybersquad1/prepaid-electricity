@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div id="payment" class="payment">
+<div id="summary" class="summary">
   <div class="text-vcenter">
     <form method="post" action="{{URL::action('UsersController@postPayment')}}">
     <input type="hidden" name="_token" value="{{ csrf_token()}}">

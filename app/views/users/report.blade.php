@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div id="payment" class="payment">
+<div id="summary" class="summary">
   <div class="text-vcenter">
     <div class="row">
 		<h2>Electric Status</h2>
@@ -21,7 +21,7 @@
 	        <div class="row margin-0 list-header hidden-sm hidden-xs">
 	            <div class="col-md-4"><div class="header">Unit ID</div></div>
 	            <div class="col-md-3"><div class="header">Credit</div></div>
-	            <div class="col-md-3"><div class="header">Remarks</div></div>
+	            <div class="col-md-5"><div class="header">Remarks</div></div>
 	        </div>
 
 	        <div class="row margin-0">
@@ -35,12 +35,12 @@
 	            <div class="col-md-3">
 	                <div class="cell">
 	                    <div class="type">
-	                        <code>{{$unit->credit}}</code>
+	                        <h5><code><strong>{{$unit->credit}}</strong></code></h5>
 	                    </div>
 	                </div>
 	            </div>
 	            @if($unit->credit <= 50 & $unit->credit > 0)
-	            <div class="col-md-3">
+	            <div class="col-md-5">
 	                <div class="cell">
 	                    <div class="type">
 	                        Please reload immidiately to prevent disconnection.
@@ -48,7 +48,7 @@
 	                </div>
 	            </div>
 	            @elseif($unit->credit <= 0)
-	            <div class="col-md-3">
+	            <div class="col-md-5">
 	                <div class="cell">
 	                    <div class="type">
 	                        Your electricity has been disconnected. Please reload.

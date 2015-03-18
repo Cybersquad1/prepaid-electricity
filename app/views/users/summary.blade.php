@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<div id="payment" class="payment">
+<div id="summary" class="summary">
   <div class="text-vcenter">
-    <div class="row">
+    <div class="rowsum">
 		<h2>Report Summary</h2>
 	    <p class="lead">
 	        Credit Logs, Summary, etc.
@@ -19,35 +19,36 @@
 
 	    <div class="method">
 	        <div class="row margin-0 list-header hidden-sm hidden-xs">
-	            <div class="col-md-4"><div class="header">Unit ID</div></div>
-	            <div class="col-md-3"><div class="header">Amount</div></div>
-	            <div class="col-md-3"><div class="header">Date</div></div>
+	            <div class="col-md-3"><div class="header">Unit ID</div></div>
+	            <div class="col-md-4"><div class="header">Amount</div></div>
+	            <div class="col-md-5"><div class="header">Date</div></div>
 	        </div>
-
+			@foreach ($credit_summary as $credits)
 	        <div class="row margin-0">
+	            <div class="col-md-3">
+	                <div class="cell">
+	                    <div class="type">
+	                          {{$credits->unit_id}}
+	                    </div>
+	                </div>
+	            </div>
 	            <div class="col-md-4">
 	                <div class="cell">
-	                    <div class="propertyname">
-	                          <span class="mobile-isrequired">[Required]</span>
+	                    <div class="type">
+	                        {{$credits->amount}}
 	                    </div>
 	                </div>
 	            </div>
-	            <div class="col-md-3">
+	            <div class="col-md-5">
 	                <div class="cell">
 	                    <div class="type">
-	                        <code></code>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-3">
-	                <div class="cell">
-	                    <div class="type">
-	                        
+	                        {{$credits->created_at}}
 	                    </div>
 	                </div>
 	            </div>
 
 	        </div>
+	        @endforeach
 	    </div>
     </div>
   </div>
