@@ -87,7 +87,7 @@ class UsersController extends BaseController {
 	}
 
 	public function getSummary() {
-		$credit_summary = Creditlog::orderBy('created_at', 'asc')->get();
+		$credit_summary = Creditlog::orderBy('created_at', 'desc')->get();
 
 	    return View::make('users.summary', array('credit_summary' => $credit_summary));
 	}

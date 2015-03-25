@@ -74,20 +74,29 @@
       <div class="col-sm-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
+            <h2 class="panel-title">ARDUINO</h2>
           </div>
           <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet. 
+            Convert serial reading to readable values <br>
+            Displays watt data to serial monitor <br>
+            If serial input ‘on’ = send voltage to pin 13 <br>
+            If serial input ‘off’ = turns off voltage on pin 13 
+
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
+            <h2 class="panel-title">LARAVEL</h2>
           </div>
           <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet. 
+            Graphical User Interface <br>
+            Create command that turns on serial event that reads data from serial monitor <br>
+            Save watt values to database <br>
+            GUI for loading electricity <br>
+            Sends command to Arduino to turn on/off pin 13
+
           </div>
         </div>
       </div>
